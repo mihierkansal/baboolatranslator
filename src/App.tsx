@@ -1,5 +1,4 @@
 import { createSignal } from "solid-js";
-import { Textarea } from "./Components/Textarea";
 
 const COUNTRIES = {
   "am-ET": "Amharic",

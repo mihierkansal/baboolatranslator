@@ -54,6 +54,10 @@ div.inp {
   border: 1px solid white;
   font-family: "Segoe Print", "Bradley Hand", "Bradley Hand ITC",
     "Comic Sans MS", "Comic Sans", cursive;
+  & * {
+    font-family: "Segoe Print", "Bradley Hand", "Bradley Hand ITC",
+      "Comic Sans MS", "Comic Sans", cursive;
+  }
   font-size: 1.2rem;
   line-height: 2rem;
 
