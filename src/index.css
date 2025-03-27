@@ -31,20 +31,25 @@ body {
 }
 
 .io-container {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: stretch;
   gap: 0.5rem;
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }
 
 .io-container-item {
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 13rem;
 }
 
-textarea {
+div.inp {
   border: 1px solid white;
   font-family: "Segoe Print", "Bradley Hand", "Bradley Hand ITC",
     "Comic Sans MS", "Comic Sans", cursive;
@@ -73,17 +78,16 @@ textarea {
 
   outline: none;
 
-  height: 13rem;
-
   width: 35vw;
 
+  overflow: hidden;
+
+  height: 100%;
   box-shadow: inset 0 6px 15px rgba(0, 0, 0, 0.149),
     0 0 0 1px rgb(181, 181, 181);
 
-  overflow: hidden;
   @media (max-width: 768px) {
     width: 80vw;
-    height: 7rem;
   }
 }
 

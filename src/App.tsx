@@ -1,4 +1,5 @@
 import { createSignal } from "solid-js";
+import { Textarea } from "./Components/Textarea";
 
 const COUNTRIES = {
   "am-ET": "Amharic",
@@ -162,11 +163,12 @@ function App() {
                   </option>
                 ))}
               </select>
-              <textarea
-                disabled={isLoading()}
-                value={text()}
-                onChange={(e) => setText(e.target.value)}
-              ></textarea>
+              <div
+                class="inp"
+                contentEditable
+                onBlur={(e) => setText((e.target as HTMLDivElement).innerText)}
+                innerText={text()}
+              ></div>
               <button
                 class="speak"
                 onClick={() => speak(text(), translateFrom())}
@@ -191,11 +193,10 @@ function App() {
                   </option>
                 ))}
               </select>
-              <textarea
-                placeholder={isLoading() ? "Translating..." : ""}
-                readOnly
-                value={translatedText()}
-              ></textarea>
+              <div
+                class="inp"
+                innerText={isLoading() ? "Translating..." : translatedText()}
+              ></div>
               <button
                 class="speak"
                 onClick={() => speak(translatedText(), translateTo())}
