@@ -1,4 +1,5 @@
 import { createSignal } from "solid-js";
+import "baboolastyles/public/plastic.css";
 
 const COUNTRIES = {
   "am-ET": "Amharic",
@@ -100,7 +101,6 @@ const COUNTRIES = {
 };
 
 function App() {
-  const [count, setCount] = createSignal(0);
   const [text, setText] = createSignal("");
   const [translatedText, setTranslatedText] = createSignal("");
   const [translateFrom, setTranslateFrom] = createSignal("en-GB");
@@ -137,7 +137,7 @@ function App() {
 
   return (
     <>
-      <div class="translate-container">
+      <div class="translate-container plastic">
         <div>
           <div
             style={{
@@ -162,21 +162,27 @@ function App() {
                   </option>
                 ))}
               </select>
-              <div
-                class="inp"
-                contentEditable
-                onBlur={(e) => setText((e.target as HTMLDivElement).innerText)}
-                innerText={text()}
-              ></div>
-              <button
-                class="speak"
-                onClick={() => speak(text(), translateFrom())}
-              >
-                🕪
-              </button>
+              <div>
+                <div
+                  class="inp"
+                  contentEditable
+                  onBlur={(e) =>
+                    setText((e.target as HTMLDivElement).innerText)
+                  }
+                  innerText={text()}
+                ></div>
+                <div class="plastic">
+                  <button
+                    class="speak"
+                    onClick={() => speak(text(), translateFrom())}
+                  >
+                    <span>🕪</span>
+                  </button>
+                </div>
+              </div>
             </div>
             <button class="swap" onClick={swap}>
-              ⇄
+              <span>⇄</span>
             </button>
 
             <div class="io-container-item">
@@ -192,16 +198,20 @@ function App() {
                   </option>
                 ))}
               </select>
-              <div
-                class="inp"
-                innerText={isLoading() ? "Translating..." : translatedText()}
-              ></div>
-              <button
-                class="speak"
-                onClick={() => speak(translatedText(), translateTo())}
-              >
-                🕪
-              </button>
+              <div>
+                <div
+                  class="inp"
+                  innerText={isLoading() ? "Translating..." : translatedText()}
+                ></div>
+                <div class="plastic">
+                  <button
+                    class="speak"
+                    onClick={() => speak(translatedText(), translateTo())}
+                  >
+                    <span>🕪</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
           <div
@@ -218,7 +228,7 @@ function App() {
               }}
               onClick={translate}
             >
-              Translate
+              <span>Translate</span>
             </button>
           </div>
         </div>

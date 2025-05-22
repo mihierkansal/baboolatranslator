@@ -2,19 +2,8 @@
   --rule-blue: #72accb;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
 body {
-  background: url("https://images.unsplash.com/photo-1629194898512-b6b8697063ac?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDMwODU4NzV8&ixlib=rb-4.0.3&q=85")
-    no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
+  background: #242424;
   overflow: auto;
   display: flex;
   align-items: center;
@@ -27,9 +16,6 @@ body {
   padding: 1rem;
   width: min-content;
   border-radius: 1.5rem;
-  background-image: linear-gradient(to bottom right, white, lightgrey);
-
-  box-shadow: inset 0 3px 4px #fff, 0 0 20px 0 rgb(0, 0, 0);
 }
 
 .io-container {
@@ -51,15 +37,16 @@ body {
   flex-direction: column;
   min-height: 13rem;
 }
-
+div:has(> .inp) {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
 div.inp {
+  position: relative;
   border: 1px solid white;
   font-family: "Segoe Print", "Bradley Hand", "Bradley Hand ITC",
     "Comic Sans MS", "Comic Sans", cursive;
-  & * {
-    font-family: "Segoe Print", "Bradley Hand", "Bradley Hand ITC",
-      "Comic Sans MS", "Comic Sans", cursive !important;
-  }
   font-size: 1.2rem;
   line-height: 2rem;
 
@@ -96,89 +83,28 @@ div.inp {
   @media (max-width: 768px) {
     width: 80vw;
   }
-}
-
-button.btn {
-  background: linear-gradient(to bottom, #fff, #ccc);
-  color: black;
-  border: 1px solid grey;
-  padding: 0.5rem 1rem;
-  border-radius: 9rem;
-  font-size: 1.2rem;
-  height: 2.75rem;
-  text-shadow: 0 -1px 1px #0002, 0 1px 1px white;
-  cursor: pointer;
-  box-shadow: 0 -3px 2px #0001, 0 4px 2px #fff, inset 0 0 9px #0002;
-
-  transition: all 0.1s;
-
-  &:active {
-    box-shadow: 0 -3px 2px #0001, 0 4px 2px #fff, inset 0 0 9px #0007;
-    color: #4488aa;
-    font-size: 1.1rem;
+  & * {
+    font-family: "Segoe Print", "Bradley Hand", "Bradley Hand ITC",
+      "Comic Sans MS", "Comic Sans", cursive !important;
   }
 }
-
+:has(> button.speak) {
+  position: absolute;
+  bottom: 0.25rem;
+  right: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 1.5rem;
+}
 button.speak {
-  background-color: #72accb;
   color: white;
   border: none;
-  position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
   height: 2.25rem;
-  width: 2.25rem;
-  border-radius: 50%;
   cursor: pointer;
   font-size: 1.5rem;
   transform: rotateY(180deg);
-
-  border: 2px solid white;
-
-  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5), 0 3px 7px rgba(0, 0, 0, 0.2);
-  &:active {
-    background-color: #385ca1;
-  }
-}
-
-.swap {
-  color: white;
-  border: none;
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
-  cursor: pointer;
-
-  color: black;
-
-  box-shadow: -1px -1px 5px white, 1px 1px 5px 0 rgba(0, 0, 0, 0.2);
-
-  &:active {
-    box-shadow: 1px 1px 5px white, -1px -1px 5px 0 rgba(0, 0, 0, 0.2);
-
-    padding-left: 1px;
-    padding-top: 1px;
-  }
-  @media (max-width: 768px) {
-    transform: rotate(90deg);
-  }
 }
 
 select {
   width: 100%;
-  padding: 0.35rem 0.7rem;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  border: 1px solid white;
   margin-bottom: 0.5rem;
-  outline: none;
-  background: linear-gradient(to bottom, white, lightgrey);
-  color: black;
-  cursor: pointer;
-  box-shadow: 0 0 0px 1px rgb(174, 174, 174), 1px 1px 5px white,
-    -1px -1px 5px 0 rgba(0, 0, 0, 0.1);
-
-  &:active {
-    background: linear-gradient(to bottom, lightgrey, white);
-  }
 }
